@@ -28,6 +28,6 @@ name = ''
 for key, value in friends.items():
     for i in things3:
         if i not in value:
-            print(i)
             name = key
+
 print(f"3. {things3} - Вещи которые есть у всех кроме одного - {name}")

@@ -21,9 +21,12 @@ THINGS = {"палатка": 6,
           "фонарик": 1,
           "спички": 1,
           }
+
 bag_size = int(input('Введите размер рюкзака: '))
 bag = take_things(bag_size)
+
 count = 1
+
 for key, value in bag.items():
     print(f"{count}. {key} - {value} штук")
     count += 1

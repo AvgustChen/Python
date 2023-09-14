@@ -20,11 +20,15 @@ text = 'Сочинение было написано под впечатлени
 
 text = text.replace('.', '').replace('!', '').replace('?', '').replace(',', '').replace('—', '').lower().split()
 text_dict = dict()
+
 for i in text:
     text_dict[i] = text_dict.get(i, 0) + 1
+
 words = []
+
 for i in range(10):
     words.append(max(text_dict, key=text_dict.get))
     text_dict.pop(words[i])
+
 for i, word in enumerate(words, 1):
     print(f"{i}. {word}")
