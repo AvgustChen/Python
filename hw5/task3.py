@@ -6,6 +6,6 @@
 # как ставка умноженная на процент премии
 
 def gen_dict(lst_name, lst_stv, lst_prem):
-    return {lst_name[i]: lst_stv[i] * float(lst_prem[i][:-1])/100 for i in range(len(lst_name))}
+    yield {lst_name[i]: lst_stv[i] * float(lst_prem[i][:-1])/100 for i in range(len(lst_name))}
 
-print(gen_dict(["Иван","Андрей","Сергей"],[1000, 2000, 1500], ["12.6%","9.5%","11%"]))
+print(*gen_dict(["Иван","Андрей","Сергей"],[1000, 2000, 1500], ["12.6%","9.5%","11%"]))
