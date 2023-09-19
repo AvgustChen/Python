@@ -9,6 +9,8 @@ def _leap_year(year: int) -> bool:
 def check_date(date: str) -> bool:
     day, month, year = list(map(int, date.split('.')))
     print(day, month, year)
+    if day < 0 or month < 0 or year < 0:
+        return False
     if month == 2 and _leap_year(year) == False:
         if day > 28:
             return False

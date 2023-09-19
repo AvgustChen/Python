@@ -4,6 +4,8 @@
 # действует Григорианский календарь. Проверку года на високосность вынести в отдельную защищённую функцию.
 
 from date import check_date
-
-date = check_date('31.02.2000')
-print('Дата может существовать' if date else 'Такая дата невозможна')
+from sys import argv
+if __name__ == '__main__':
+    args = argv[1:]
+    date = check_date(args[0])
+    print('Дата может существовать' if date else 'Такая дата невозможна')
