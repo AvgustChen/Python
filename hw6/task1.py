@@ -5,7 +5,9 @@
 
 from date import check_date
 from sys import argv
+
 if __name__ == '__main__':
     args = argv[1:]
     date = check_date(args[0])
     print('Дата может существовать' if date else 'Такая дата невозможна')
+    date = check_date('30.02.1986')
