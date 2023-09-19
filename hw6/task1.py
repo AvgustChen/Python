@@ -11,3 +11,4 @@ if __name__ == '__main__':
     date = check_date(args[0])
     print('Дата может существовать' if date else 'Такая дата невозможна')
     date = check_date('30.02.1986')
+    print('Дата может существовать' if date else 'Такая дата невозможна')
