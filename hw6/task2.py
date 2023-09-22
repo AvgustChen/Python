@@ -1,7 +1,7 @@
 
 from chessboard import queens, chess_board
 
-for i in range(4):
+for i in range(1):
     chess_board()
     print('---------------------------')
 
