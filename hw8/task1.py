@@ -16,7 +16,6 @@ from pathlib import Path
 def walking(path: str):
     file_list = os.walk(path)
     result = {}
-    count = 1
     for item in file_list:
         for j in range(len(item)):
             if item[0] in result:
@@ -25,10 +24,9 @@ def walking(path: str):
                 if type(item[j]) == list and len(item[j]) > 0:
                     for k in range(len(item[j])):
                         result[f'{item[0]}'].append([item[j][k]])
-
             else:
                 result[item[0]] = []
-        count += 1
+
 
     for key, value in result.items():
         for j in range(len(value)):
