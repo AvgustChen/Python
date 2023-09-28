@@ -12,6 +12,7 @@ import csv
 import os
 from typing import Callable
 from random import randint as ri
+from functools import wraps
 
 
 def generation_csv_file(func: Callable):
@@ -25,7 +26,7 @@ def generation_csv_file(func: Callable):
 def read_csv(func: Callable):
     generation_csv_file(func)
     file_name = func.__name__ + '.csv'
-
+    @wraps(func)
     def wrapper():
         nonlocal file_name
         with open(file_name, 'r', encoding='UTF-8') as file:
@@ -44,8 +45,8 @@ def json_result(func: Callable):
         with open(file_name, 'r', encoding='UTF-8') as file:
             result = json.load(file)
 
+    @wraps(func)
     def wrapper(*args):
-        print(args)
         a, b, c, *_ = args
         equation = func(a, b, c)
         result[f'{a}, {b}, {c}'] = equation
