@@ -11,6 +11,7 @@ import json
 import csv
 import os
 from typing import Callable
+from random import choice as ch
 from random import randint as ri
 from functools import wraps
 
@@ -20,7 +21,8 @@ def generation_csv_file(func: Callable):
     with open(file_name, 'w', encoding='UTF-8') as file:
         csv_writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         for i in range(ri(100, 1000)):
-            csv_writer.writerow((ri(-1000, 1000), ri(-1000, 1000), ri(-1000, 1000)))
+            csv_writer.writerow((ch([i for i in range(-100,100) if i != 0]), ch([i for i in range(-100,100) if i != 0]),
+                                 ch([i for i in range(-100,100) if i != 0])))
 
 
 def read_csv(func: Callable):
@@ -64,10 +66,11 @@ def square_equation(a, b, c):
     if discr > 0:
         x1 = (-b + math.sqrt(discr)) / (2 * a)
         x2 = (-b - math.sqrt(discr)) / (2 * a)
-        return round(x1, 2), round(x2, 2)
+        return (f'x1 = {round(x1, 2)}\n'
+                f'x2 =  {round(x2, 2)}')
     elif discr == 0:
         x = -b / (2 * a)
-        return round(x, 2)
+        return f'x = {round(x, 2)}'
     else:
         return 'Not squares'
 
